@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=78", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p05-detect"
+version = "0.4.0"
+description = "Cigarette object localization with CARAFE and NWD research components"
+readme = "README.md"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "NOTICE.md"]
+requires-python = ">=3.12"
+dependencies = ["ultralytics==8.4.174", "torch>=2.7", "torchvision>=0.22", "pyyaml", "pycocotools==2.0.11", "numpy", "pillow"]
+
+[project.scripts]
+p05-detect = "p05_detect.infer.__main__:main"
+p05-evaluate = "p05_detect.eval.__main__:main"
+
+[project.optional-dependencies]
+ui = ["gradio==6.30.0"]
+heif = ["pi-heif"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["p05_detect*"]
+
+[tool.setuptools.package-data]
+p05_detect = ["configs/models/*.yaml", "configs/registry/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

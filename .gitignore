@@ -1,0 +1,16 @@
+runtime/
+__pycache__/
+*.pt
+*.pth
+.pytest_cache/
+*.egg-info/
+weights/
+*.safetensors
+*.onnx
+*.engine
+p05_out/
+outputs/
+.venv/
+build/
+dist/
+*.whl

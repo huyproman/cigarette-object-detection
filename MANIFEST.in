@@ -1,0 +1,6 @@
+include .gitignore LICENSE NOTICE.md THIRD_PARTY.md README.md Makefile PUBLIC_FILES.json
+recursive-include docs *.md
+recursive-exclude docs/internal *
+recursive-include examples *.json *.png
+recursive-include tests *.py
+recursive-exclude tests/research *

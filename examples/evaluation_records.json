@@ -1,0 +1,10 @@
+{
+  "images": [
+    {"image_id": "synthetic", "width": 640, "height": 640,
+     "gt": [[0, [10, 10, 30, 30]]]}
+  ],
+  "predictions": [
+    {"image_id": "synthetic", "class_id": 0, "score": 0.9,
+     "box": [10, 10, 30, 30], "index": 0, "space": "original_pixel_xyxy"}
+  ]
+}

@@ -1,0 +1,77 @@
+{
+ "registry_version": 1,
+ "output_schema_version": "1",
+ "locked_at": "2026-10-26T05:37:59.881850+07:00",
+ "lock_note": "seed-101 best checkpoints were fixed before any qualitative output was inspected; no other seed was considered",
+ "inference_policy": {
+  "imgsz": 640,
+  "head": "one2many",
+  "nms": true,
+  "iou": 0.7,
+  "max_det": 300,
+  "display_conf": 0.25,
+  "eval_conf": 0.001,
+  "letterbox": "ultralytics LetterBox(640,auto=False,stride=32) pad 114",
+  "color": "RGB uint8 /255",
+  "ultralytics": "8.4.174"
+ },
+ "default_profile": "b0",
+ "weights_dir_env": "P05_WEIGHTS_DIR",
+ "weights_dir_default": "weights",
+ "profiles": [
+  {
+   "profile_id": "b0",
+   "arm": "B0",
+   "run_id": "B0-101",
+   "seed": 101,
+   "checkpoint_file": "b0_seed101_best.pt",
+   "checkpoint_sha256": "d0fe8a6fea7ba1de97be2be7b4b7442bf57427b27cd86b4d4dd578b3bb995fb5",
+   "checkpoint_bytes": 20296837,
+   "architecture_config": "yolo26s.yaml (upstream)",
+   "best_fitness": 0.43721,
+   "nwd_training_loss": false,
+   "class_names": {
+    "0": "cigarette"
+   },
+   "display_name": "YOLO26s Baseline",
+   "description": "Default reference. Original YOLO26s; simplest graph, lowest inference overhead.",
+   "role": "default_reference"
+  },
+  {
+   "profile_id": "e2_carafe",
+   "arm": "E2",
+   "run_id": "E2-101",
+   "seed": 101,
+   "checkpoint_file": "e2_carafe_seed101_best.pt",
+   "checkpoint_sha256": "c5f3053107a76dfaaee7763ae38466ba9af144a7d0c8f1ea2ea7968dfaccd7f1",
+   "checkpoint_bytes": 20629981,
+   "architecture_config": "configs/models/yolo26s-carafe.yaml",
+   "best_fitness": 0.43084,
+   "nwd_training_loss": false,
+   "class_names": {
+    "0": "cigarette"
+   },
+   "display_name": "YOLO26s + CARAFE",
+   "description": "Optional comparison. CARAFE content-aware upsampling at layers 11 and 14.",
+   "role": "optional_carafe"
+  },
+  {
+   "profile_id": "e3_combined",
+   "arm": "E3",
+   "run_id": "E3-101",
+   "seed": 101,
+   "checkpoint_file": "e3_combined_seed101_best.pt",
+   "checkpoint_sha256": "14b2a5418bac4bda38d360747f7593f58a9478703b95b461f1edd4280b409b5e",
+   "checkpoint_bytes": 20630045,
+   "architecture_config": "configs/models/yolo26s-carafe.yaml (same inference graph as E2)",
+   "best_fitness": 0.43449,
+   "nwd_training_loss": true,
+   "class_names": {
+    "0": "cigarette"
+   },
+   "display_name": "YOLO26s + NWD + CARAFE",
+   "description": "Optional comparison. Same CARAFE inference graph as E2; NWD is a training-loss change only and adds no inference computation.",
+   "role": "optional_carafe_nwd"
+  }
+ ]
+}
